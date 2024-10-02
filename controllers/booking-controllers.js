@@ -1,3 +1,5 @@
+import { booking } from "../models/booking-models.js";
+
 export const getAllBookings = (req, res) => {
   res.status(200).json("these are all bookings");
 };
@@ -5,8 +7,13 @@ export const getAllBookings = (req, res) => {
 export const getOneBooking = (req, res) => {
   res.status(200).json("this is one booking");
 };
-export const postBooking = (req, res) => {
-  res.status(201).json("post booking");
+export const postBooking =  async (req, res) => {
+  const newBooking =  new booking()
+  const bookings = await newBooking.save(req.body)
+
+  console.log('request', req)
+
+  res.status(201).json(bookings);
 };
 
 export const updateBooking = (req, res) => {
@@ -16,3 +23,4 @@ export const updateBooking = (req, res) => {
 export const deleteBooking = (req, res) => {
   res.status(200).json("delete a booking");
 };
+
