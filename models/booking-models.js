@@ -1,33 +1,31 @@
-import {Schema, model} from "mongoose";
+import { Schema, model } from "mongoose";
 
-const bookingSchema = new Schema ({
-
-    firstName:{ 
-        type:String,
-        //required: true
+const bookingSchema = new Schema({
+  firstName: {
+    type: String,
+    //required: true
+  },
+  lastName: {
+    type: String,
+    // required: true
+  },
+  sex: {
+    type: String,
+    // required: true,
+    enum: {
+      values: ["male", "female"],
     },
-    lastName:{
-        type: String,
-       // required: true
-    },
-    sex :{
-        type: String,
-       // required: true,
-        enum:{
-            values:['male', 'female']
-        },
-    },
-    seatNumber : {
-        type: Number,
-        unique: true,
-        //required:true
-    },
-    email : {
-        type: String,
-        unique: true,
-        //required: true
-    }
-
+  },
+  seatNumber: {
+    type: Number,
+    unique: true,
+    //required:true
+  },
+  email: {
+    type: String,
+    unique: true,
+    //required: true
+  },
 });
 
-export const booking =model('booking',bookingSchema);
+export const booking = model("booking", bookingSchema);
