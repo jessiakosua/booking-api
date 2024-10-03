@@ -1,7 +1,7 @@
 import express from "express";
 
 import mongoose from "mongoose";
-import cors from cors
+import cors from "cors"
 
 // import { bookingRouter, } from "./controllers/routes/all -routes.js";
 import { bookingRouter } from "./routes/all-routes.js";
